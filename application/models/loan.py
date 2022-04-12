@@ -12,9 +12,10 @@ class Loan(db.Model):
     return_date: str
     loan_status: str
 
-
     id = db.Column(db.Integer, primary_key=True)
     loan_date = db.Column(db.String(12), nullable=True)
     return_date = db.Column(db.String(12), nullable=True)
     loan_status = db.Column(db.String(15), nullable=True)
-    person_id = db.Column(db.Integer, db.ForeignKey("membe
+    person_id = db.Column(db.Integer, db.ForeignKey("library_member.id"), nullable=False)
+    book_id = db.Column(db.Integer, db.ForeignKey("book.id"), nullable=False)
+
